@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumReviews.DotNetApi", "AlbumReviews.DotNetApi\AlbumReviews.DotNetApi.csproj", "{DE3FF4A7-AD89-4E4E-A1F8-80D2103E89DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumReviews.UnitTest", "AlbumReviews.UnitTest\AlbumReviews.UnitTest.csproj", "{5B88AC39-CF7B-4672-8CE2-95359C84D21A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DE3FF4A7-AD89-4E4E-A1F8-80D2103E89DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE3FF4A7-AD89-4E4E-A1F8-80D2103E89DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE3FF4A7-AD89-4E4E-A1F8-80D2103E89DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B88AC39-CF7B-4672-8CE2-95359C84D21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B88AC39-CF7B-4672-8CE2-95359C84D21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B88AC39-CF7B-4672-8CE2-95359C84D21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B88AC39-CF7B-4672-8CE2-95359C84D21A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

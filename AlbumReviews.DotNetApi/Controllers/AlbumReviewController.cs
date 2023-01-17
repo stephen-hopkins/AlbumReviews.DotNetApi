@@ -29,9 +29,9 @@ public class AlbumReviewController : BaseController
     [HttpGet("own")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<ActionResult<List<AlbumReviewDto>>> GetOwn(HttpRequest req)
+    public async Task<ActionResult<List<AlbumReviewDto>>> GetOwn()
     {
-        var userId = UserClaims.GetUserId(req);
+        var userId = GetUserId();
         var results = await _service.GetOwnAlbumReviews(userId);
         return results.Any() ? 
             results : 
@@ -62,11 +62,11 @@ public class AlbumReviewController : BaseController
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<AlbumReviewDto>> Add(HttpRequest req, AlbumReviewDto dto)
+    public async Task<ActionResult<AlbumReviewDto>> Add([FromBody]AlbumReviewDto dto)
     {
         try
         {
-            var userId = UserClaims.GetUserId(req);
+            var userId = GetUserId();
             var created = await _service.AddAlbumReview(dto, userId);
             return created;
         }

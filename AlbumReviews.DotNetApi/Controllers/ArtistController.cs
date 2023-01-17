@@ -51,11 +51,11 @@ public class ArtistController : BaseController
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ArtistDto>> Add(HttpRequest req, ArtistDto dto)
+    public async Task<ActionResult<ArtistDto>> Add(ArtistDto dto)
     {
         try
         {
-            var userId = UserClaims.GetUserId(req);
+            var userId = GetUserId();
             var created = await _service.Add(dto, userId);
             return created;
         }

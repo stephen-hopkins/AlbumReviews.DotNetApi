@@ -29,9 +29,10 @@ if (connection == null)
 {
     throw new Exception("No default connection string specified");
 }
+var serverVersion = ServerVersion.AutoDetect(connection);
 builder.Services.AddDbContext<ApplicationContext>(
     options => options
-        .UseMySQL(connection)
+        .UseMySql(connection, serverVersion)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors());
 

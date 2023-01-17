@@ -10,9 +10,9 @@ public class UserClaims : IUserClaims
 {
     private static string UserIdClaimName = "sub";
 
-    public string GetUserId(HttpRequest req)
+    public string GetUserId(HttpRequest? req)
     {
-        var trimmed = req.Headers.Authorization.ToString().Replace("Bearer ", String.Empty);
+        var trimmed = req?.Headers.Authorization.ToString().Replace("Bearer ", String.Empty);
         if (!string.IsNullOrEmpty(trimmed))
         {
             var token = new JwtSecurityTokenHandler().ReadJwtToken(trimmed);

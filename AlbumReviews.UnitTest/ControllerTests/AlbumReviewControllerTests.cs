@@ -21,18 +21,17 @@ public class AlbumReviewControllerTests : SqlLiteContext
     public async Task GetOwnReviewsHappyPath()
     {
         var artistDto = ArtistFactory.ArtistDto.Generate();
-        var req = Mock.Of<HttpRequest>();
         var artistController = ControllerFactories.ArtistController(CreateContext(), "AlbumReviewTests");
-        var createdArtist = await artistController.Add(req, artistDto);
+        var createdArtist = await artistController.Add(artistDto);
         var review = AlbumReviewFactory.AlbumReviewDto.Generate();
         review.AlbumId = createdArtist.Value!.Albums[0].Id;
 
-        var addResult = await _controller.Add(req, review);
+        var addResult = await _controller.Add(review);
         addResult.Value.Should().NotBeNull();
         addResult.Value!.Should().BeEquivalentTo(review, options => 
             options.Excluding(r => r.Id).Excluding(r => r.AuthorUserId));
 
-        var ownResults = await _controller.GetOwn(req);
+        var ownResults = await _controller.GetOwn();
         ownResults.Value.Should().NotBeNull();
         ownResults.Value.Should().HaveCount(1);
         ownResults.Value![0].Should().BeEquivalentTo(addResult.Value);

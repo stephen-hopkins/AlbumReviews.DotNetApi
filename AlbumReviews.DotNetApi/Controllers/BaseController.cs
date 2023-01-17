@@ -11,4 +11,9 @@ public class BaseController : ControllerBase
     {
         UserClaims = new UserClaims();
     }
+
+    protected string GetUserId()
+    {
+        return UserClaims.GetUserId(HttpContext?.Request);
+    }
 }

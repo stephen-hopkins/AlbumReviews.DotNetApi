@@ -2,5 +2,5 @@
 
 public interface IUserClaims
 {
-    string GetUserId(HttpRequest req);
+    string GetUserId(HttpRequest? req);
 }

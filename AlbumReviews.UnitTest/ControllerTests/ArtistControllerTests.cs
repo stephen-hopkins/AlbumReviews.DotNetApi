@@ -21,9 +21,8 @@ public class ArtistControllerTests : SqlLiteContext
     {
         var artistDto = ArtistFactory.ArtistDto.Generate();
         artistDto.Name = "Aphex Twin";
-        var req = Mock.Of<HttpRequest>();
 
-        var addResult = await _controller.Add(req, artistDto);
+        var addResult = await _controller.Add(artistDto);
 
         addResult.Should().NotBeNull();
         addResult.Value.Should().BeEquivalentTo(artistDto, options => options
